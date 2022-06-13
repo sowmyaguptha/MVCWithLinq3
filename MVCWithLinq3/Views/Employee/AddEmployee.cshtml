@@ -1,0 +1,19 @@
+﻿@model MVCWithLinq3.Models.EmpDept
+@{
+    ViewBag.Title = "AddEmployee";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New EMployee</h2>
+@using (Html.BeginForm("AddEmployee", "Employee"))
+{
+    <div>@Html.LabelFor(E => E.Ename)<br />@Html.TextBoxFor(E => E.Ename)</div>
+    <div>@Html.LabelFor(E => E.job)<br />@Html.TextBoxFor(E => E.job)</div>
+    <div>@Html.LabelFor(E => E.salary)<br />@Html.TextBoxFor(E => E.salary)</div>
+    <div>@Html.LabelFor(E => E.Dname)<br />
+    @Html.DropDownListFor(E=>E.Did,Model.Departments,"~Select Dept~")</div>
+
+    <div>
+        <input type="Submit" value="save" name="btnsave"/>
+        @Html.ActionLink("Cancel","DisplayEmployees")
+        </div>
+    }
+
